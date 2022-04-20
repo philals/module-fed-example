@@ -2,7 +2,8 @@ import { Suspense } from "react";
 import "./App.css";
 import React from "react";
 const Header = React.lazy(() => import("@mpui/Header"));
-const SquadApp = React.lazy(() => import("@squad/App"));
+const Squad1App = React.lazy(() => import("@squad1/App"));
+const Squad2App = React.lazy(() => import("@squad2/App"));
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
         <Header />
       </Suspense>
       <Suspense fallback={"loading..."}>
-        <SquadApp />
+        <Squad1App />
+      </Suspense>
+      <Suspense fallback={"loading..."}>
+        <Squad2App />
       </Suspense>
     </div>
   );

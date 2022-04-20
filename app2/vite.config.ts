@@ -4,12 +4,12 @@ import federation from "@originjs/vite-plugin-federation";
 // https://vitejs.dev/config/
 export default defineConfig({
   preview: {
-    port: 3002,
+    port: 3003,
     strictPort: true,
   },
   plugins: [
     federation({
-      name: "@squad",
+      name: "@squad2",
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App.tsx",
