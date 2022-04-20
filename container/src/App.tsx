@@ -8,12 +8,17 @@ const Squad2App = React.lazy(() => import("@squad2/App"));
 function App() {
   return (
     <div className="container">
+      {/* / */}
       <Suspense fallback={"loading..."}>
         <Header />
       </Suspense>
+
+      {/* /dealing */}
       <Suspense fallback={"loading..."}>
+        {/* /dealing/prepare */}
         <Squad1App />
       </Suspense>
+      {/* /notice-of-change */}
       <Suspense fallback={"loading..."}>
         <Squad2App />
       </Suspense>
