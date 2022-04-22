@@ -4,7 +4,7 @@ import "./App.css";
 
 export default function (): JSX.Element {
   // Major issue: https://github.com/originjs/vite-plugin-federation/issues/173
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">

@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  preview: {
+    port: 3000,
+  },
   plugins: [
     react(),
     federation({
@@ -15,7 +18,7 @@ export default defineConfig({
       remotes: {
         "@mpui": "http://localhost:3001/assets/remoteEntry.js",
         "@squad1": {
-          external: "http://localhost:3002/assets/remoteEntry.js",
+          external: "http://localhost:3002/assets/1.0.2/remoteEntry.js",
           from: "vite",
         },
         "@squad2": {
