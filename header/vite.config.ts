@@ -14,7 +14,11 @@ export default defineConfig({
       exposes: {
         "./Header": "./src/Header.tsx",
       },
-      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+        "react-router-dom": { singleton: true },
+      },
     }),
   ],
   build: {

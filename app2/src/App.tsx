@@ -3,13 +3,11 @@ import logo from "./logo.svg";
 import "./App.css";
 
 export default function (): JSX.Element {
-  // Major issue: https://github.com/originjs/vite-plugin-federation/issues/173
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React Appp22222</p>
+      <h1>I am App 2</h1>
       <p>
         <button type="button" onClick={() => setCount((count) => count + 1)}>
           count is: {count}

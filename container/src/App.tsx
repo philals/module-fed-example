@@ -1,6 +1,6 @@
+import React from "react";
 import { Suspense } from "react";
 import "./App.css";
-import React from "react";
 const Header = React.lazy(() => import("@mpui/Header"));
 const Squad1App = React.lazy(() => import("@squad1/App"));
 const Squad2App = React.lazy(() => import("@squad2/App"));
@@ -15,10 +15,21 @@ function App() {
         </Suspense>
         <Routes>
           <Route
+            path="/"
+            element={
+              <Suspense fallback={"loading..."}>
+                <>
+                  <h1>Home is a composition of two apps</h1>
+                  <Squad1App />
+                  <Squad2App />
+                </>
+              </Suspense>
+            }
+          />
+          <Route
             path="/dealing"
             element={
               <Suspense fallback={"loading..."}>
-                {/* /dealing/prepare */}
                 <Squad1App />
               </Suspense>
             }

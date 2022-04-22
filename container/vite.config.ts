@@ -18,7 +18,7 @@ export default defineConfig({
       remotes: {
         "@mpui": "http://localhost:3001/assets/remoteEntry.js",
         "@squad1": {
-          external: "http://localhost:3002/assets/1.0.2/remoteEntry.js",
+          external: "http://localhost:3002/assets/remoteEntry.js",
           from: "vite",
         },
         "@squad2": {
@@ -26,7 +26,11 @@ export default defineConfig({
           from: "vite",
         },
       },
-      shared: { react: { singleton: true }, "react-dom": { singleton: true } },
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+        "react-router-dom": { singleton: true },
+      },
     }),
   ],
 });
