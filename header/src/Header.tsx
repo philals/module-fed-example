@@ -1,19 +1,21 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
-export default () => (
-  <header>
-    <div className="header">
-      <a href="#default" className="logo">
-        CompanyLogo
-      </a>
-      <div className="header-right">
-        <a className="active" href="#home">
-          Home
+export default function () {
+  return (
+    <header>
+      <div className="header">
+        <a href="#default" className="logo">
+          CompanyLogo
         </a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <div className="header-right">
+          <Link className="active" to="/">
+            Home
+          </Link>
+          <Link to="/dealing">Dealing</Link>
+          <Link to="/survey">Survey</Link>
+        </div>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+}
