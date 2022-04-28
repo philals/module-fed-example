@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -10,8 +10,21 @@ declare global {
 
 export default function (): JSX.Element {
   const [count, setCount] = useState(0);
+  const [sideBarOpen, setSideBarOpen] = useState(false);
 
-  console.log("🚀 ~ file: App.tsx ~ line 33 ~ window.theUser", window.theUser);
+  function toggleSideBar(event: any) {
+    setSideBarOpen(!sideBarOpen);
+  }
+
+  useEffect(() => {
+    window.addEventListener("ui-change", toggleSideBar);
+
+    return () => {
+      window.removeEventListener("ui-change", toggleSideBar);
+    };
+  }, []);
+
+  console.log("🚀 ~ render", sideBarOpen);
   return (
     <div className="App">
       <h1>I am App 2</h1>
@@ -21,6 +34,15 @@ export default function (): JSX.Element {
           count is: {count}
         </button>
       </p>
+
+      {sideBarOpen && (
+        <div>
+          <h1>Pretend that I am a side bar</h1>
+          <h1>Pretend that I am a side bar</h1>
+          <h1>Pretend that I am a side bar</h1>
+          <h1>Pretend that I am a side bar</h1>
+        </div>
+      )}
 
       <p>
         Edit <code>App.tsx</code> and save to test HMR updates.

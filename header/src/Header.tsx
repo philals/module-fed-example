@@ -37,6 +37,13 @@ function logout() {
 export default function () {
   const [user, setUser] = React.useState(window.theUser); // Replace with a hook which syncs with window or something
 
+  function toggleSideBar() {
+    const customEvent = new CustomEvent("ui-change", {
+      detail: "toggle-sidebar",
+    });
+    window.dispatchEvent(customEvent);
+  }
+
   const handleUserChange = (event: any) => {
     setUser(window.theUser);
   };
@@ -62,14 +69,24 @@ export default function () {
           <Link to="/dealing">Dealing</Link>
           <Link to="/survey">Survey</Link>
           {window.theUser ? (
-            <a
-              onClick={(e) => {
-                e.preventDefault();
-                logout();
-              }}
-            >
-              Logout
-            </a>
+            <>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  logout();
+                }}
+              >
+                Logout Event
+              </a>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleSideBar();
+                }}
+              >
+                Toggle Sidebar
+              </a>
+            </>
           ) : (
             <a
               href="#default"
@@ -78,7 +95,7 @@ export default function () {
                 login();
               }}
             >
-              Login
+              Login Event
             </a>
           )}
         </div>
