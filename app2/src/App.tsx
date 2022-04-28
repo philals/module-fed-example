@@ -24,7 +24,6 @@ export default function (): JSX.Element {
     };
   }, []);
 
-  console.log("🚀 ~ render", sideBarOpen);
   return (
     <div className="App">
       <h1>I am App 2</h1>
