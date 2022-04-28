@@ -2,17 +2,26 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+declare global {
+  interface Window {
+    theUser: any;
+  }
+}
+
 export default function (): JSX.Element {
   const [count, setCount] = useState(0);
 
+  console.log("🚀 ~ file: App.tsx ~ line 33 ~ window.theUser", window.theUser);
   return (
     <div className="App">
       <h1>I am App 2</h1>
+      <h2>user {JSON.stringify(window.theUser)}</h2>
       <p>
         <button type="button" onClick={() => setCount((count) => count + 1)}>
           count is: {count}
         </button>
       </p>
+
       <p>
         Edit <code>App.tsx</code> and save to test HMR updates.
       </p>
@@ -22,9 +31,7 @@ export default function (): JSX.Element {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        ></a>
         {" | "}
         <a
           className="App-link"
