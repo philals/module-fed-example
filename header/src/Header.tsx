@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 
 declare global {
@@ -36,12 +36,17 @@ function logout() {
 
 export default function () {
   const [user, setUser] = React.useState(window.theUser); // Replace with a hook which syncs with window or something
+  const [sideBarOpen, setSideBarOpen] = useState(false);
 
   function toggleSideBar() {
     const customEvent = new CustomEvent("ui-change", {
-      detail: "toggle-sidebar",
+      detail: {
+        name: "toggle-sidebar",
+        value: !sideBarOpen,
+      },
     });
     window.dispatchEvent(customEvent);
+    setSideBarOpen(!sideBarOpen);
   }
 
   const handleUserChange = (event: any) => {

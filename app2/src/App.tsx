@@ -13,7 +13,7 @@ export default function (): JSX.Element {
   const [sideBarOpen, setSideBarOpen] = useState(false);
 
   function toggleSideBar(event: any) {
-    setSideBarOpen(!sideBarOpen);
+    setSideBarOpen(event.detail.value);
   }
 
   useEffect(() => {
