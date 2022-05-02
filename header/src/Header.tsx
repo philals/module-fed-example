@@ -65,7 +65,7 @@ export default function () {
     <header>
       <div className="header">
         <a href="#default" className="logo">
-          Current User: {window.theUser?.name}
+          Current !User: {window.theUser?.name}
         </a>
         <div className="header-right">
           <Link className="active" to="/">
