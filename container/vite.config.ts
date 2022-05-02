@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
+// @squad2 entry shows how you could dynamically load a remote entry file
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -17,13 +19,10 @@ export default defineConfig({
       filename: "remoteEntry.js",
       remotes: {
         "@mpui": "http://localhost:3001/assets/remoteEntry.js",
-        "@squad1": {
-          external: "http://localhost:3002/assets/remoteEntry.js",
-          from: "vite",
-        },
+        "@squad1": "http://localhost:3002/assets/remoteEntry.js",
         "@squad2": {
-          external: "http://localhost:3003/assets/remoteEntry.js",
-          from: "vite",
+          external: `Promise.resolve(window.localStorage.setItem("address2","http://localhost:3002/assets/remoteEntry.js") || window.localStorage.getItem('address2'))`,
+          externalType: "promise",
         },
       },
       shared: {
