@@ -1,10 +1,13 @@
-These commands will run the container app on http://localhost:3000
+Run `npm install` then `npm run watch` in `./app1`,`./app2`,`./container`,`./header`. Ignore `./container-webpack` and `./app3`
 
-cd into each directory and run `npm run watch`.
+These commands will run the container app on http://localhost:3000. From here you'll see an app with a module federated header that can send events to other children via an event bus. 
 
-The container will start as a site in dev mode.
+Fire a "Login Event". This fires an event via "Custom Event"
 
-The others will be production built and hosted as static assets
+Clicking Dealing or Survey will swap out the contents of the page to different micro-frontends. 
+
+Any updates to these frontends is consumed at run time.
+
 
 Task/Ideas
 

@@ -42,8 +42,8 @@ function App() {
                 <Suspense fallback={"loading..."}>
                   <>
                     <h1>Home is a composition of two apps</h1>
-                    <Squad1App />
-                    <Squad2App />
+                    {/* <Squad1App /> */}
+                    {/* <Squad2App /> */}
                   </>
                 </Suspense>
               }
@@ -52,6 +52,7 @@ function App() {
               path="/dealing"
               element={
                 <Suspense fallback={"loading..."}>
+                  <p>Route is /dealing</p>
                   <Squad1App />
                 </Suspense>
               }
@@ -60,6 +61,7 @@ function App() {
               path="/survey"
               element={
                 <Suspense fallback={"loading..."}>
+                  <p>Route is /survey</p>
                   <Squad2App />
                 </Suspense>
               }

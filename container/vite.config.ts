@@ -20,10 +20,7 @@ export default defineConfig({
       remotes: {
         "@mpui": "http://localhost:3001/assets/remoteEntry.js",
         "@squad1": "http://localhost:3002/assets/remoteEntry.js",
-        "@squad2": {
-          external: `Promise.resolve(window.localStorage.setItem("address2","http://localhost:3002/assets/remoteEntry.js") || window.localStorage.getItem('address2'))`,
-          externalType: "promise",
-        },
+        "@squad2": "http://localhost:3003/assets/remoteEntry.js",
       },
       shared: {
         react: { singleton: true },
